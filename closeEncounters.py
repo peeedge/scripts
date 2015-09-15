@@ -52,8 +52,8 @@ def ugly():
     play(4,C,FN)
 
 def main():
-    #good()
-    #bad()
+    good()
+    bad()
     ugly()
 
 
