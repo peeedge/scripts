@@ -1,7 +1,8 @@
 import numpy as np
 import csv as csv
 import pandas as pd
-
+from collections import Counter
+import pprint
 
 def most_common(lst):
 	# print list.count(lst)
@@ -25,19 +26,41 @@ def main():
 	  #data[i].append(diff)
 
 
-	subject = []
+	# subject = []
 	fromList = []
-#	toList = []
+	bodyList = []
+	htmlText = ""
+	bodyWordsList = []
 	for i in range(len(data)):
-	  subject.append(data[i][0])
+	  # subject.append(data[i][0])
 	  fromList.append(data[i][2])
-	  #toList.append(data[i][4])
+	  # bodyList.append(data[i][1])
 
+	  # bodyList.append(data[i][1])
+	  # bodyWordsList = data[i][1].split()
+	  # bodyList.extend(bodyWordsList)
 	#print "Total in 1910: %d" % len(pop1910)
 
-	#print most_common(toList)
-	print most_common(fromList)
-	print most_common(subject)
+	# print Counter(fromList)
+	# print pprint.pformat(Counter(fromList))
+
+	for key, value in Counter(fromList).items():
+		htmlText += ' %s emailed you ' % key
+		htmlText += '  %d times \n' % value
+	# htmlLines = []
+	# for textLine in pprint.pformat(Counter(fromList)).splitlines():
+	#     htmlLines.append('<br/>%s' % textLine) # or something even nicer
+	# htmlText = '\n'.join(htmlLines)
+
+	print htmlText
+
+	# print Counter(fromList).keys()
+	# print Counter(fromList).values()
+
+	# # print most_common(bodyList)
+	# print most_common(fromList)
+	# print set(fromList)
+	# print most_common(subject)
 
 
 main()
