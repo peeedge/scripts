@@ -1,7 +1,6 @@
-import os,sys,glob,pprint,build_utils
+import os,sys,glob,pprint
 
-if len(sys.argv) > 1:
-	root_dir = build_utils.getRootDir()    
+if len(sys.argv) > 1:   
 
 	# Read in the input
 	with open('Web.config', 'r') as input :
